@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Continue(){
-        
+        GameManager.GetInstance().LoadGame();
     }
 
 }

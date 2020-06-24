@@ -7,11 +7,8 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager _audioManager;
-
     public AudioSource musicAudio, playerAudio, fxAudio, ambientAudio, environmentAudio;
-    
     public AudioMixer audioMixer;
-
     public Slider master,music,soundEffect;
 
 
@@ -28,10 +25,22 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-       
+       musicAudio.Play();
     }
 
 
+    public float GetMasterVolume()
+    {
+        if(audioMixer.GetFloat("MasterVolume", out float volume)) return volume;
+        return 0;
+    }
+
+    public void SetMasterVolume(float volume)    // 控制主音量的函数
+    {
+        audioMixer.SetFloat("MasterVolume", volume);
+        // MasterVolume为我们暴露出来的Master的参数
+    }
+    
      public void SetMasterVolume(Slider s)    // 控制主音量的函数
     {
         audioMixer.SetFloat("MasterVolume", s.value);

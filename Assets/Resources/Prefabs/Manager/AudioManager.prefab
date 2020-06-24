@@ -310,6 +310,9 @@ MonoBehaviour:
   ambientAudio: {fileID: 4586836981228079251}
   environmentAudio: {fileID: 1572738148584870328}
   audioMixer: {fileID: 24100000, guid: 12cb1ac5f985b224eb64fa7a79ede24c, type: 2}
+  master: {fileID: 0}
+  music: {fileID: 0}
+  soundEffect: {fileID: 0}
 --- !u!1 &4184981954043472178
 GameObject:
   m_ObjectHideFlags: 0

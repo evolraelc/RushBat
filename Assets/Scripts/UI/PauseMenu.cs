@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -71,12 +72,17 @@ public class PauseMenu : MonoBehaviour
 
     private void Quit()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     private void AudioSet()
     {
         audioSlider.gameObject.SetActive(!audioSlider.gameObject.activeSelf);
+        audioSlider.value = AudioManager.GetInstance().GetMasterVolume();
+        audioSlider.onValueChanged.AddListener(value =>
+        {
+            AudioManager.GetInstance().SetMasterVolume(value);
+        });
     }
 
     private void ShowEquipmentList()
